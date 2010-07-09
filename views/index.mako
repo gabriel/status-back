@@ -14,12 +14,24 @@
           <p>status-back returns HTTP responses based on parameters. Its useful for testing error handling for HTTP response status codes, content-type, and content.</p>
 
           <hr/>
+          
+          <h2>TODO</h2>
+          <ul>
+            <li>More parameters for testing timeout, latency.</li>
+            <li>Response throttling.</li>
+            <li>Simulate connection errors.</li>
+            <li>Redirects.</li>
+            <li>Support various response headers.</li>
+            <li>"Aliases" or "Commands" for testing certain scenarios (like infinite redirect).</li>
+          </ul>
+          
+          <hr/>
 
           <h2 id="source">Source</h2>
           On github: <a href="http://github.com/gabriel/status-back">gabriel/status-back</a></p>          
           <hr/>
           
-          <h2 id="url_params">URL parameters</h2>
+          <h2 id="url_params">Parameters</h2>
           
           <table id="url-params" class="tabular">
             <thead>
@@ -31,17 +43,17 @@
             <tbody>
             <tr>
               <td>status</td> 
-              <td>HTTP status code to return</td> 
+              <td>HTTP status code for response</td> 
               <td><a href="http://status-back.appspot.com/?status=503">http://status-back.appspot.com/?status=503</a></td>
             </tr>
             <tr>
               <td>content_type</td> 
-              <td>Content-Type response header</td> 
+              <td>Content-Type for response header</td> 
               <td><a href="http://status-back.appspot.com/?status=200&content_type=application%2Fjson">http://status-back.appspot.com/?status=200&content_type=application%2Fjson</a></td>
             </tr>
             <tr>
               <td>content</td> 
-              <td>Content for response</td> 
+              <td>Body content for response</td> 
               <td><a href="http://status-back.appspot.com/?status=200&content=OK">http://status-back.appspot.com/?status=200&content=OK</a></td>
             </tr>
             </tbody>
