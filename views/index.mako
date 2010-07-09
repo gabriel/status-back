@@ -42,7 +42,7 @@
             <tr>
               <td>content</td> 
               <td>Content for response</td> 
-              <td><a href="http://status-back.appspot.com/?status=200">http://status-back.appspot.com/?status=200&content=OK</a></td>
+              <td><a href="http://status-back.appspot.com/?status=200&content=OK">http://status-back.appspot.com/?status=200&content=OK</a></td>
             </tr>
             </tbody>
           </table>
