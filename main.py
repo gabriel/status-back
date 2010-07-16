@@ -36,7 +36,7 @@ class MainHandler(webapp.RequestHandler):
     template = template_lookup.get_template('index.mako')
     self.response.out.write(template.render())
 
-  def get(self):
+  def respond(self):
     status_code = int(self.request.get('status', 0))
     content = self.request.get('content', None)
     content_type = self.request.get('content_type', 'text/plain')
@@ -50,6 +50,14 @@ class MainHandler(webapp.RequestHandler):
       self.response.headers['Content-Type'] = content_type
     if content is not None:
       self.response.out.write(content)
+
+  def get(self):
+    return self.respond()
+
+  def post(self):
+    return self.respond()
+
+
 
 def main():
   application = webapp.WSGIApplication([('/.*', MainHandler)],
