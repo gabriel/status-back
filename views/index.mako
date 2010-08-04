@@ -20,7 +20,6 @@
             <li>More parameters for testing timeout, latency.</li>
             <li>Response throttling.</li>
             <li>Simulate connection errors.</li>
-            <li>Redirects.</li>
             <li>Support various response headers.</li>
             <li>"Aliases" or "Commands" for testing certain scenarios (like infinite redirect).</li>
           </ul>
@@ -48,8 +47,13 @@
             </tr>
             <tr>
               <td>content_type</td> 
-              <td>Content-Type for response header</td> 
+              <td>Response header: Content-Type</td> 
               <td><a href="http://status-back.appspot.com/?status=200&content_type=application%2Fjson">http://status-back.appspot.com/?status=200&content_type=application%2Fjson</a></td>
+            </tr>
+            <tr>
+              <td>location</td> 
+              <td>Response header: Location; Used for redirect only</td> 
+              <td>curl -L "<a href="http://status-back.appspot.com/?status=302&location=http://yelp.com">http://status-back.appspot.com/?status=302&location=http://yelp.com</a>"</td>
             </tr>
             <tr>
               <td>content</td> 

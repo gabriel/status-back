@@ -39,15 +39,21 @@ class MainHandler(webapp.RequestHandler):
   def respond(self):
     status_code = int(self.request.get('status', 0))
     content = self.request.get('content', None)
-    content_type = self.request.get('content_type', 'text/plain')
+    headers = dict()
+    headers['Content-Type'] = self.request.get('content_type', 'text/plain')
+    # Location header only available in 3xx
+    if status_code in xrange(300, 400):
+      headers['Location'] = self.request.get('location', None)
 
     if status_code == 0:
       self.docs()
       return
 
     self.response.set_status(status_code)
-    if content_type is not None:
-      self.response.headers['Content-Type'] = content_type
+    for header_key, header_value in headers.iteritems():
+      if header_value:
+        self.response.headers[header_key] = header_value
+
     if content is not None:
       self.response.out.write(content)
 
